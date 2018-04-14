@@ -6,7 +6,7 @@
 			<br>
 			<mat-list class="task-list">
 				<div *ngFor="let task of tasks">
-					<mat-list-item class="todo-item" [ngClass]="(task.completed) ? 'green': ''">
+					<mat-list-item class="todo-item" [style.background-color]="(task.completed) ? '#' + color : ''">
 						<p mat-line>
 							<span>{{task.name}}</span>
 						</p>

@@ -1,10 +1,14 @@
 <div class="app-container">
-    <mat-toolbar>
+    <mat-toolbar class="main-toolbar">
         <mat-toolbar-row>
             Todo List
+            <span class="fill"></span>
+            <button mat-icon-button class="nav-right" (click)="openSettings()">
+                <mat-icon>settings</mat-icon>
+            </button>
         </mat-toolbar-row>
     </mat-toolbar>
-    <todo-list>
+    <todo-list [color]="color">
         
     </todo-list>
 </div>

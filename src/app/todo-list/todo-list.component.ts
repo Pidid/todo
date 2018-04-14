@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
 import { Task } from '../models/task';
@@ -10,11 +10,12 @@ import { TaskService } from '../task.service';
 	styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
+	@Input() color: string;
 	static latestId = 0;
 	tasks: Task[];
 
 	constructor(public dialog: MatDialog, public taskService: TaskService) {
-
+		
 	}
 
 	ngOnInit() {
