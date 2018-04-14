@@ -8,12 +8,3 @@
 .todo-content {
     padding: 10px;
 }
-
-.todo-content mat-icon {
-    float: right;
-    padding: 5px;
-}
-
-.todo-item span, mat-icon {
-    line-height: 1px;
-}
