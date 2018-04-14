@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
 import { Task } from '../models/task';
+import { TaskService } from '../task.service';
 
 @Component({
 	selector: 'todo-list',
@@ -12,23 +13,18 @@ export class TodoListComponent implements OnInit {
 	static latestId = 0;
 	tasks: Task[];
 
-	constructor(public dialog: MatDialog) {
+	constructor(public dialog: MatDialog, public taskService: TaskService) {
 
 	}
 
 	ngOnInit() {
-		this.tasks = [
-			<Task>{
-				id: TodoListComponent.getId(),
-				name: "Test1",
-				completed: false
-			},	
-			<Task>{
-				id: TodoListComponent.getId(),
-				name: "Test2",
-				completed: true
-			}	
-		]
+		this.tasks = this.taskService.getTasks() || [];
+		if(this.tasks.length > 0) {
+			var ids = this.tasks.map(task => task.id);
+			TodoListComponent.latestId = Math.max.apply(null, ids);
+		}
+		else
+			TodoListComponent.latestId = 0;
 	}
 
 	addTask() {
@@ -37,6 +33,7 @@ export class TodoListComponent implements OnInit {
 			name: "",
 			completed: false
 		});
+		this.save();
 	}
 
 	removeTask(id: number) {
@@ -44,11 +41,13 @@ export class TodoListComponent implements OnInit {
 		var taskIndex = this.tasks.indexOf(task);
 		if(task)
 			this.tasks.splice(taskIndex, 1);
+		this.save();
 	}
 
 	toggleTask(id: number) {
 		var task = this.tasks.find(task => task.id == id);
 		task.completed = !task.completed;
+		this.save();
 	}
 
 	editTask(id: number) {
@@ -57,10 +56,17 @@ export class TodoListComponent implements OnInit {
 			width: "400px",
 			data: task
 		});
+		this.save();
+	}
+
+	//Move save functionality into an observable on the tasks array
+	save() {
+		this.taskService.saveTasks(this.tasks);
 	}
 
 	static getId() {
-		return TodoListComponent.latestId++;
+		TodoListComponent.latestId++;
+		return TodoListComponent.latestId;
 	}
 
 }

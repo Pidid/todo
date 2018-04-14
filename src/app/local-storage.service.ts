@@ -7,15 +7,15 @@ export class LocalStorageService {
 	}
 
 	//TODO: There is a possibility to overwrite data on accident if multiple components or services use this method
-	write(key: number, data: any) {
-		localStorage.setItem(key.toString(), data);
+	write(key: any, data: any) {
+		localStorage.setItem(key.toString(), JSON.stringify(data));
 	}
 
-	read(key: number): any {
-		return localStorage.getItem(key.toString());
+	read<T>(key: any): any {
+		return <T>JSON.parse(localStorage.getItem(key.toString()));
 	}
 
-	delete(key: number) {
+	delete(key: any) {
 		localStorage.removeItem(key.toString());
 	}
 }

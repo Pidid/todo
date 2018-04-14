@@ -10,10 +10,10 @@ export class TaskService {
 	}
 
 	saveTasks(tasks: Task[]) {
-
+		this.localStorageService.write(TaskService, tasks);
 	}
 
-	getTasks() {
-		
+	getTasks(): Task[] {
+		return this.localStorageService.read<Task[]>(TaskService);
 	}
 }
