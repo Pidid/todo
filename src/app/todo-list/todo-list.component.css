@@ -5,10 +5,25 @@
     margin-right: auto;
 }
 
-.todo-content {
-    padding: 10px;
+.todo-item {
+    border-radius: 2px;
+}
+
+.todo-title {
+    text-align: center;
 }
 
 .green {
     background-color: green;
+}
+
+.mat-card {
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 5px;
+}
+
+.task-list {
+    position: relative;
+    left: 5px;
 }

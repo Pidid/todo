@@ -1,8 +1,10 @@
 <div class="todo-container">
 	<mat-card>
-		<mat-card-title>Tasks</mat-card-title>
+		<mat-card-title class="todo-title">Tasks</mat-card-title>
+		<mat-divider></mat-divider>
 		<mat-card-content class="todo-content">
-			<mat-list>
+			<br>
+			<mat-list class="task-list">
 				<div *ngFor="let task of tasks">
 					<mat-list-item class="todo-item" [ngClass]="(task.completed) ? 'green': ''">
 						<p mat-line>
@@ -19,7 +21,6 @@
 							<mat-icon>edit</mat-icon>
 						</button>
 					</mat-list-item>
-					<mat-divider></mat-divider>
 				</div>
 			</mat-list>
 			<br>
@@ -27,7 +28,7 @@
 				<mat-icon>add circle</mat-icon>
 			</button>
 			<!-- <br>
-			<br> -->
+			<br>
 			<!-- <button mat-raised-button color="primary" (click)="save()">Save</button> -->
 		</mat-card-content>
 	</mat-card>
