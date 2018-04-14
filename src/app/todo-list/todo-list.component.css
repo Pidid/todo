@@ -1,12 +1,13 @@
 .todo-container {
-    width: 500px;
+    width: 525px;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .todo-item {
-    border-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 .todo-title {
