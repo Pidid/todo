@@ -15,11 +15,13 @@ export class TodoListComponent implements OnInit {
 		this.tasks = [
 			<Task>{
 				id: TodoListComponent.getId(),
-				name: "Test1"
+				name: "Test1",
+				completed: false
 			},	
 			<Task>{
 				id: TodoListComponent.getId(),
-				name: "Test2"
+				name: "Test2",
+				completed: true
 			}	
 		]
 	}
@@ -27,7 +29,8 @@ export class TodoListComponent implements OnInit {
 	addTask() {
 		this.tasks.push(<Task>{
 			id: TodoListComponent.getId(),
-			name: ""
+			name: "",
+			completed: false
 		});
 	}
 
@@ -38,8 +41,9 @@ export class TodoListComponent implements OnInit {
 			this.tasks.splice(taskIndex, 1);
 	}
 
-	completeTask(id: number) {
-
+	toggleTask(id: number) {
+		var task = this.tasks.find(task => task.id == id);
+		task.completed = !task.completed;
 	}
 
 	static getId() {
@@ -51,4 +55,5 @@ export class TodoListComponent implements OnInit {
 interface Task {
 	id: number;
 	name: string;
+	completed: boolean;
 }

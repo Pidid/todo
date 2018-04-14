@@ -4,12 +4,13 @@
 		<mat-card-content class="todo-content">
 			<mat-list>
 				<div *ngFor="let task of tasks">
-					<mat-list-item class="todo-item">
+					<mat-list-item class="todo-item" [ngClass]="(task.completed) ? 'green': ''">
 						<p mat-line>
 							<span>{{task.name}}</span>
 						</p>
-						<button mat-icon-button>
-							<mat-icon>done</mat-icon>
+						<button mat-icon-button (click)="toggleTask(task.id)">
+							<mat-icon *ngIf="!task.completed">check</mat-icon>
+							<mat-icon *ngIf="task.completed">close</mat-icon>
 						</button>
 						<button mat-icon-button (click)="removeTask(task.id)">
 							<mat-icon>delete</mat-icon>
