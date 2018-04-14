@@ -1,0 +1,14 @@
+<div>
+	<h3 mat-dialog-title>{{task.name}}</h3>
+	<mat-dialog-content>
+		<mat-form-field>
+			<input matInput placeholder="Name" [(ngModel)]="task.name">
+		</mat-form-field>
+
+		<mat-form-field>
+			<input matInput placeholder="Description" [(ngModel)]="task.description">
+		</mat-form-field>
+
+		<button mat-raised-button color="primary" (click)="submit()">Submit</button>
+	</mat-dialog-content>
+</div>

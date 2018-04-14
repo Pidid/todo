@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
+import { Task } from '../models/task';
 
 @Component({
 	selector: 'todo-list',
@@ -9,7 +12,9 @@ export class TodoListComponent implements OnInit {
 	static latestId = 0;
 	tasks: Task[];
 
-	constructor() { }
+	constructor(public dialog: MatDialog) {
+
+	}
 
 	ngOnInit() {
 		this.tasks = [
@@ -46,14 +51,16 @@ export class TodoListComponent implements OnInit {
 		task.completed = !task.completed;
 	}
 
+	editTask(id: number) {
+		var task = this.tasks.find(task => task.id == id);
+		var dialogRef = this.dialog.open(EditTaskDialogComponent, {
+			width: "300px",
+			data: task
+		});
+	}
+
 	static getId() {
 		return TodoListComponent.latestId++;
 	}
 
-}
-
-interface Task {
-	id: number;
-	name: string;
-	completed: boolean;
 }
