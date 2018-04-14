@@ -54,7 +54,7 @@ export class TodoListComponent implements OnInit {
 	editTask(id: number) {
 		var task = this.tasks.find(task => task.id == id);
 		var dialogRef = this.dialog.open(EditTaskDialogComponent, {
-			width: "300px",
+			width: "400px",
 			data: task
 		});
 	}

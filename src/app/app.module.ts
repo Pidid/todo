@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { TaskService } from './task.service';
+import { LocalStorageService } from './local-storage.service';
 
 
 @NgModule({
@@ -30,7 +32,10 @@ import { FormsModule } from '@angular/forms';
 		BrowserAnimationsModule,
 		FormsModule
   	],
-  	providers: [],
+	providers: [
+		  TaskService,
+		  LocalStorageService
+	  ],
   	bootstrap: [AppComponent]
 })
 export class AppModule { }
