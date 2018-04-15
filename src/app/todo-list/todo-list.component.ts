@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
 import { Task } from '../models/task';
 import { TaskService } from '../task.service';
+import { Color } from '../models/color';
 
 @Component({
 	selector: 'todo-list',
@@ -11,9 +12,11 @@ import { TaskService } from '../task.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class TodoListComponent implements OnInit {
-	@Input() color: string;
+	@Input() color: Color;
+
 	static latestId = 0;
 	tasks: Task[];
+	hex: string;
 
 	constructor(public dialog: MatDialog, public taskService: TaskService) {
 		
@@ -28,7 +31,7 @@ export class TodoListComponent implements OnInit {
 		else
 			TodoListComponent.latestId = 0;
 
-		this.color = '#' + this.color;
+		this.hex = '#' + this.color.hex;
 	}
 
 	addTask() {

@@ -17,7 +17,6 @@ export class FocusDirective implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.focus)
 		if(this.focus) 
 			this.el.nativeElement.focus();
 	}

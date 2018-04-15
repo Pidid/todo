@@ -11,6 +11,7 @@ import { TaskService } from './task.service';
 import { LocalStorageService } from './local-storage.service';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
 import { FocusDirective } from './focus.directive';
+import { Color } from './models/color';
 
 
 @NgModule({

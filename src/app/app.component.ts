@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component'
+import { Color } from './models/color';
 
 @Component({
 	selector: 'app-root',
@@ -8,14 +9,16 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-	color: string;
+	color: Color;
 
 	constructor(public dialog: MatDialog) {
 
 	}
 
 	ngOnInit() {
-		this.color = "358735";
+		var green = new Color("green", 358735);
+		var red = new Color("red", 873535);
+		this.color = red;
 	}
 
 	openSettings() {

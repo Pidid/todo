@@ -30,6 +30,10 @@
     right: 20px;
 }
 
+.no-underline {
+    width: 65%;
+}
+
 .no-underline .mat-form-field-underline {
     display: none;
 }
