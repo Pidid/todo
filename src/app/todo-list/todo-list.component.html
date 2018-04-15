@@ -24,6 +24,7 @@
 						</button>
 					</mat-list-item>
 				</div>
+				<p *ngIf="tasks.length < 1" class="help">Click the "+" to add a task.</p>
 			</mat-list>
 			<br>
 			<button mat-icon-button (click)="addTask()">

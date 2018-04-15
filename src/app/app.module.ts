@@ -12,6 +12,7 @@ import { LocalStorageService } from './local-storage.service';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
 import { FocusDirective } from './focus.directive';
 import { Color } from './models/color';
+import { SettingsService } from './settings.service';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { Color } from './models/color';
   	],
 	providers: [
 		  TaskService,
-		  LocalStorageService
+		  LocalStorageService,
+		  SettingsService
 	  ],
   	bootstrap: [AppComponent]
 })

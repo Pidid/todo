@@ -41,3 +41,9 @@
 .no-underline.mat-focused .mat-form-field-underline {
     display: block;
 }
+
+.help {
+    padding-left: 10px;
+    font-size: 15px;
+    color: gray;
+}

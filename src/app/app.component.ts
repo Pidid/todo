@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component'
 import { Color } from './models/color';
+import { SettingsService } from './settings.service';
 
 @Component({
 	selector: 'app-root',
@@ -11,14 +12,17 @@ import { Color } from './models/color';
 export class AppComponent implements OnInit {
 	color: Color;
 
-	constructor(public dialog: MatDialog) {
+	constructor(public dialog: MatDialog, public settingsService: SettingsService) {
 
 	}
 
 	ngOnInit() {
-		var green = new Color("green", 358735);
-		var red = new Color("red", 873535);
-		this.color = red;
+		var settings = this.settingsService.getSettings();
+
+		if(settings.selectedColor)
+			this.color = settings.selectedColor;
+		else
+			this.color = this.settingsService.getDefaultColors()[0];
 	}
 
 	openSettings() {
@@ -26,8 +30,8 @@ export class AppComponent implements OnInit {
 			width: "500px"
 		});
 
-		dialogRef.componentInstance.onPickColor.subscribe((e) => {
-			
+		dialogRef.componentInstance.onPickColor.subscribe((color: Color) => {
+			this.color = color;
 		});
 	}
 

@@ -2,11 +2,8 @@
 <mat-dialog-content>
 	<mat-form-field>
 		<mat-select aria-placeholder="Complete Color">
-			<mat-option value="009900">
-				Green
-			</mat-option>
-			<mat-option value="990000">
-				Red
+			<mat-option *ngFor="let color of colors" value="color.hex" (click)="pickColor(color)">
+				{{color.name}}
 			</mat-option>
 		</mat-select>
 	</mat-form-field>
