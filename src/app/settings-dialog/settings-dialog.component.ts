@@ -33,14 +33,10 @@ export class SettingsDialogComponent implements OnInit {
 		this.settingsService.saveSettings(this.settings);
 	}
 
-	addColor() {
-		var color = new Color(this.newColorName, this.newColorHex);
-		this.settings.colors.push(new Color(this.newColorName, this.newColorHex));
+	addColor(color: Color) {
+		this.settings.colors.push(color);
 		this.settingsService.saveSettings(this.settings);
 		this.pickColor(color);
-
-		this.newColorHex = "";
-		this.newColorName = "";
 	}
 
 	clearTasks() {

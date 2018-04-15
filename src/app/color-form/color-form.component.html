@@ -1,0 +1,12 @@
+<div class="new-color">
+	<mat-form-field>
+		<input matInput placeholder="Name" [(ngModel)]="color.name"/>
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Hex" [errorStateMatcher]="hexMatch" [(ngModel)]="color.hex"/>
+	</mat-form-field>
+	<br>
+	<button mat-raised-button (click)="submit()">
+		Add Color
+	</button>
+</div>

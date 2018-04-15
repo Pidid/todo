@@ -13,6 +13,7 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
 import { FocusDirective } from './focus.directive';
 import { Color } from './models/color';
 import { SettingsService } from './settings.service';
+import { ColorFormComponent } from './color-form/color-form.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SettingsService } from './settings.service';
 		TodoListComponent,
 		EditTaskDialogComponent,
 		SettingsDialogComponent,
-		FocusDirective
+		FocusDirective,
+		ColorFormComponent
 	],
 	entryComponents: [
 		EditTaskDialogComponent,

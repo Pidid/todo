@@ -6,4 +6,5 @@ export class Color {
         this.name = name;
         this.hex = hex;
     }
+
 }

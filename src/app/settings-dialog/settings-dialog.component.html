@@ -8,18 +8,7 @@
 		</mat-select>
 	</mat-form-field>
 	<br>
-	<div class="new-color">
-		<mat-form-field>
-			<input matInput placeholder="Name" [(ngModel)]="newColorName"/>
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Hex" [(ngModel)]="newColorHex"/>
-		</mat-form-field>
-		<br>
-		<button mat-raised-button (click)="addColor()">
-			Add Color
-		</button>
-	</div>
+	<color-form class="new-color" (onSubmit)="addColor($event)"></color-form>
 	<br>
 	<button mat-raised-button color="primary" (click)="clearColors()">
 		Clear All Colors
