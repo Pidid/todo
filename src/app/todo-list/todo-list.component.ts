@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
 import { Task } from '../models/task';
@@ -7,7 +7,8 @@ import { TaskService } from '../task.service';
 @Component({
 	selector: 'todo-list',
 	templateUrl: './todo-list.component.html',
-	styleUrls: ['./todo-list.component.css']
+	styleUrls: ['./todo-list.component.css'],
+	encapsulation: ViewEncapsulation.None
 })
 export class TodoListComponent implements OnInit {
 	@Input() color: string;
@@ -26,6 +27,8 @@ export class TodoListComponent implements OnInit {
 		}
 		else
 			TodoListComponent.latestId = 0;
+
+		this.color = '#' + this.color;
 	}
 
 	addTask() {
