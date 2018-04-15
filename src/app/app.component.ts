@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.color = "009900";
+		this.color = "358735";
 	}
 
 	openSettings() {

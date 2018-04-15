@@ -1,0 +1,15 @@
+<mat-list-item class="todo-item" [ngClass]="(task.completed) ? 'green': ''">
+	<p mat-line>
+		<span>{{task.name}}</span>
+	</p>
+	<button mat-icon-button (click)="task.completed = !task.completed">
+		<mat-icon *ngIf="!task.completed">check</mat-icon>
+		<mat-icon *ngIf="task.completed">close</mat-icon>
+	</button>
+	<button mat-icon-button (click)="remove.emit()">
+		<mat-icon>delete</mat-icon>
+	</button>
+	<button mat-icon-button (click)="edit.emit()">
+		<mat-icon>edit</mat-icon>
+	</button>
+</mat-list-item>

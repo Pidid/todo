@@ -8,6 +8,7 @@
 .todo-item {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    width: 520px;
 }
 
 .todo-title {
@@ -26,5 +27,5 @@
 
 .task-list {
     position: relative;
-    left: 5px;
+    right: 20px;
 }

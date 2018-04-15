@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TaskService } from './task.service';
 import { LocalStorageService } from './local-storage.service';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
 		AppComponent,
 		TodoListComponent,
 		EditTaskDialogComponent,
-		SettingsDialogComponent
+		SettingsDialogComponent,
+		TodoItemComponent
 	],
 	entryComponents: [
 		EditTaskDialogComponent,

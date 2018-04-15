@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
 import { Task } from '../models/task';
@@ -7,15 +7,16 @@ import { TaskService } from '../task.service';
 @Component({
 	selector: 'todo-list',
 	templateUrl: './todo-list.component.html',
-	styleUrls: ['./todo-list.component.css']
+	styleUrls: ['./todo-list.component.css'],
+	encapsulation: ViewEncapsulation.None
 })
 export class TodoListComponent implements OnInit {
 	@Input() color: string;
 	static latestId = 0;
 	tasks: Task[];
 
-	constructor(public dialog: MatDialog, public taskService: TaskService) {
-		
+	constructor(public dialog: MatDialog, public taskService: TaskService, public element: ElementRef) {
+
 	}
 
 	ngOnInit() {
@@ -29,11 +30,12 @@ export class TodoListComponent implements OnInit {
 	}
 
 	addTask() {
-		this.tasks.push(<Task>{
+		var task = <Task>{
 			id: TodoListComponent.getId(),
 			name: "",
 			completed: false
-		});
+		};
+		this.tasks.push(task);
 		this.save();
 	}
 
