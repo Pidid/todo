@@ -7,11 +7,14 @@
 			</mat-option>
 		</mat-select>
 	</mat-form-field>
+	<button *ngIf="settings.colors.length > 1" mat-icon-button (click)="deleteColor(settings.selectedColor)">
+		<mat-icon>delete</mat-icon>
+	</button>
 	<br>
 	<color-form class="new-color" (onSubmit)="addColor($event)"></color-form>
 	<br>
-	<button mat-raised-button color="primary" (click)="clearColors()">
-		Clear All Colors
+	<button mat-raised-button color="primary" (click)="resetColors()">
+		Reset Colors
 	</button>
 	<button mat-raised-button color="primary" (click)="clearTasks()">
 		Clear All Tasks

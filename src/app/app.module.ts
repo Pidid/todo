@@ -14,6 +14,7 @@ import { FocusDirective } from './focus.directive';
 import { Color } from './models/color';
 import { SettingsService } from './settings.service';
 import { ColorFormComponent } from './color-form/color-form.component';
+import { ColorPreviewComponent } from './color-preview/color-preview.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ColorFormComponent } from './color-form/color-form.component';
 		EditTaskDialogComponent,
 		SettingsDialogComponent,
 		FocusDirective,
-		ColorFormComponent
+		ColorFormComponent,
+		ColorPreviewComponent
 	],
 	entryComponents: [
 		EditTaskDialogComponent,

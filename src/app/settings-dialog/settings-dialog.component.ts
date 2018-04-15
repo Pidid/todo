@@ -39,12 +39,19 @@ export class SettingsDialogComponent implements OnInit {
 		this.pickColor(color);
 	}
 
+	deleteColor(color: Color) {
+		var colorIndex = this.settings.colors.findIndex(c => c.hex == color.hex);
+		this.settings.colors.splice(colorIndex, 1);
+
+		this.pickColor(this.settings.colors[0]);
+	}
+
 	clearTasks() {
 		this.taskService.saveTasks([]);
 		this.dialog.close();
 	}
 
-	clearColors() {
+	resetColors() {
 		this.settings.colors = this.settingsService.getDefaultColors();
 		this.pickColor(this.settings.colors[0]);
 		this.settingsService.saveSettings(this.settings);

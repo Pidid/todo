@@ -37,6 +37,7 @@ export class ColorFormComponent implements OnInit {
 		if(this.color.hex.length !== 6)
 			return;
 		this.onSubmit.emit(this.color);
+		this.color = new Color("", "");
 	}
 
 }
