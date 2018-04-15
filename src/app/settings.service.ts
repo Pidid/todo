@@ -20,14 +20,18 @@ export class SettingsService {
 			settings = new Settings();
 			this.saveSettings(settings);
 		}
+
+		if(!settings.colors || settings.colors.length < 1)
+			settings.colors = this.getDefaultColors();
+
 		return settings;
 	}
 
 	getDefaultColors(): Color[] {
 		var colors = [];
-		var green = new Color("Green", 358735);
-		var red = new Color("Red", 873535);
-		var blue = new Color("Blue", 353587);
+		var green = new Color("Green", "358735");
+		var red = new Color("Red", "873535");
+		var blue = new Color("Blue", "353587");
 
 		colors.push(green);
 		colors.push(red);

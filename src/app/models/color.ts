@@ -1,6 +1,6 @@
 export class Color {
     name: string;
-    hex: number;
+    hex: string;
 
     constructor(name, hex) {
         this.name = name;

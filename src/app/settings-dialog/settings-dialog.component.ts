@@ -15,6 +15,8 @@ export class SettingsDialogComponent implements OnInit {
 	settings: Settings;
 	colors: Color[];
 	selectedColor: Color;
+	newColorName: string;
+	newColorHex: string;
 
 	constructor(public dialog: MatDialogRef<SettingsDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
@@ -26,7 +28,6 @@ export class SettingsDialogComponent implements OnInit {
 	ngOnInit() {
 		this.settings = this.settingsService.getSettings();
 		this.colors = this.settings.colors;
-		this.colors = this.colors.concat(this.settingsService.getDefaultColors());
 		if(this.settings.selectedColor)
 			this.selectedColor = this.settings.selectedColor;
 		else
@@ -39,8 +40,22 @@ export class SettingsDialogComponent implements OnInit {
 		this.settingsService.saveSettings(this.settings);
 	}
 
+	addColor() {
+		this.settings.colors.push(new Color(this.newColorName, this.newColorHex));
+		this.settingsService.saveSettings(this.settings);
+		this.newColorHex = "";
+		this.newColorName = "";
+	}
+
 	clearTasks() {
 		this.taskService.saveTasks([]);
+		this.dialog.close();
+	}
+
+	clearColors() {
+		this.settings.colors = [];
+		this.settings.selectedColor = null;
+		this.settingsService.saveSettings(this.settings);
 		this.dialog.close();
 	}
 

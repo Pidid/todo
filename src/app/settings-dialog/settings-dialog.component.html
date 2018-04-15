@@ -1,13 +1,29 @@
 <h3 mat-dialog-title>Settings</h3>
 <mat-dialog-content>
 	<mat-form-field>
-		<mat-select aria-placeholder="Complete Color" [(value)]="selectedColor.hex">
-			<mat-option *ngFor="let color of colors" [(value)]="color.hex" (click)="pickColor(color)">
+		<mat-select placeholder="Complete Color" [value]="selectedColor.hex">
+			<mat-option *ngFor="let color of settings.colors" [value]="color.hex" (click)="pickColor(color)">
 				{{color.name}}
 			</mat-option>
 		</mat-select>
 	</mat-form-field>
 	<br>
+	<div class="new-color">
+		<mat-form-field>
+			<input matInput placeholder="Name" [(ngModel)]="newColorName"/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Hex" [(ngModel)]="newColorHex"/>
+		</mat-form-field>
+		<br>
+		<button mat-raised-button (click)="addColor()">
+			Add Color
+		</button>
+	</div>
+	<br>
+	<button mat-raised-button color="primary" (click)="clearColors()">
+		Clear All Colors
+	</button>
 	<button mat-raised-button color="primary" (click)="clearTasks()">
 		Clear All Tasks
 	</button>
