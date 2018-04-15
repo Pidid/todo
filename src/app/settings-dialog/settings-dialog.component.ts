@@ -13,8 +13,6 @@ import { Color } from '../models/color';
 export class SettingsDialogComponent implements OnInit {
 	@Output() onPickColor = new EventEmitter<Color>();
 	settings: Settings;
-	colors: Color[];
-	selectedColor: Color;
 	newColorName: string;
 	newColorHex: string;
 
@@ -27,11 +25,6 @@ export class SettingsDialogComponent implements OnInit {
 
 	ngOnInit() {
 		this.settings = this.settingsService.getSettings();
-		this.colors = this.settings.colors;
-		if(this.settings.selectedColor)
-			this.selectedColor = this.settings.selectedColor;
-		else
-			this.selectedColor = this.colors[0];
 	}
 
 	pickColor(color: Color) {
@@ -41,8 +34,11 @@ export class SettingsDialogComponent implements OnInit {
 	}
 
 	addColor() {
+		var color = new Color(this.newColorName, this.newColorHex);
 		this.settings.colors.push(new Color(this.newColorName, this.newColorHex));
 		this.settingsService.saveSettings(this.settings);
+		this.pickColor(color);
+
 		this.newColorHex = "";
 		this.newColorName = "";
 	}
@@ -53,8 +49,8 @@ export class SettingsDialogComponent implements OnInit {
 	}
 
 	clearColors() {
-		this.settings.colors = [];
-		this.settings.selectedColor = null;
+		this.settings.colors = this.settingsService.getDefaultColors();
+		this.pickColor(this.settings.colors[0]);
 		this.settingsService.saveSettings(this.settings);
 		this.dialog.close();
 	}
