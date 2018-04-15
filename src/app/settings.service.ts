@@ -27,9 +27,11 @@ export class SettingsService {
 		var colors = [];
 		var green = new Color("Green", 358735);
 		var red = new Color("Red", 873535);
+		var blue = new Color("Blue", 353587);
 
 		colors.push(green);
 		colors.push(red);
+		colors.push(blue);
 
 		return colors;
 	}

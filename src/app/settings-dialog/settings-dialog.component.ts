@@ -14,6 +14,7 @@ export class SettingsDialogComponent implements OnInit {
 	@Output() onPickColor = new EventEmitter<Color>();
 	settings: Settings;
 	colors: Color[];
+	selectedColor: Color;
 
 	constructor(public dialog: MatDialogRef<SettingsDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
@@ -26,6 +27,10 @@ export class SettingsDialogComponent implements OnInit {
 		this.settings = this.settingsService.getSettings();
 		this.colors = this.settings.colors;
 		this.colors = this.colors.concat(this.settingsService.getDefaultColors());
+		if(this.settings.selectedColor)
+			this.selectedColor = this.settings.selectedColor;
+		else
+			this.selectedColor = this.colors[0];
 	}
 
 	pickColor(color: Color) {

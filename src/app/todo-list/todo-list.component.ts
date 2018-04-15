@@ -30,8 +30,6 @@ export class TodoListComponent implements OnInit {
 		}
 		else
 			TodoListComponent.latestId = 0;
-
-		this.hex = '#' + this.color.hex;
 	}
 
 	addTask() {

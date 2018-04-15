@@ -6,7 +6,7 @@
 			<br>
 			<mat-list class="task-list">
 				<div *ngFor="let task of tasks">
-					<mat-list-item class="todo-item" [style.background-color]="(task.completed) ? hex : ''">
+					<mat-list-item class="todo-item" [style.background-color]="(task.completed) ? '#' + color.hex : ''">
 						<p mat-line>
 							<mat-form-field class="no-underline">
 								<input matInput style="width: 100%;" [focus]="task.focus" (blur)="task.focus=false; save()" [(ngModel)]="task.name"/>

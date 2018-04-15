@@ -1,8 +1,8 @@
 <h3 mat-dialog-title>Settings</h3>
 <mat-dialog-content>
 	<mat-form-field>
-		<mat-select aria-placeholder="Complete Color">
-			<mat-option *ngFor="let color of colors" value="color.hex" (click)="pickColor(color)">
+		<mat-select aria-placeholder="Complete Color" [(value)]="selectedColor.hex">
+			<mat-option *ngFor="let color of colors" [(value)]="color.hex" (click)="pickColor(color)">
 				{{color.name}}
 			</mat-option>
 		</mat-select>
