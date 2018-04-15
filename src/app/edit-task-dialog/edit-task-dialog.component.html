@@ -1,11 +1,11 @@
 <div>
 	<h3 mat-dialog-title>Edit Task</h3>
-	<mat-dialog-content>
-		<mat-form-field>
-			<input matInput placeholder="Name" [(ngModel)]="task.name">
+	<mat-dialog-content class="edit-area">
+		<mat-form-field class="task-field">
+			<input matInput placeholder="Name" [(ngModel)]="task.name" />
 		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Description" [(ngModel)]="task.description">
+		<mat-form-field class="task-field">
+			<textarea matInput matTextareaAutosize matAutosizeMinRows="2" placeholder="Description" [(ngModel)]="task.description"></textarea>
 		</mat-form-field>
 		<br>
 		<button mat-raised-button color="primary" (click)="submit()">Submit</button>
