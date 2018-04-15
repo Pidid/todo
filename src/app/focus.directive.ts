@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit, Input, Renderer } from '@angular/core';
+import { Directive, ElementRef, OnInit, Input, Renderer, HostListener } from '@angular/core';
 
 @Directive({
 	selector: '[focus]'
@@ -8,6 +8,12 @@ export class FocusDirective implements OnInit {
 
 	constructor(public el: ElementRef, public renderer: Renderer) {
 
+	}
+
+	@HostListener("keypress", ["$event"])
+	public onKeypressDown(event: KeyboardEvent) {
+		if(event.keyCode == 13)
+			this.el.nativeElement.blur();
 	}
 
 	ngOnInit() {
