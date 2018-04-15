@@ -61,7 +61,9 @@ export class TodoListComponent implements OnInit {
 			width: "400px",
 			data: task
 		});
-		this.save();
+		dialogRef.afterClosed().subscribe(() => {
+			this.save();
+		});
 	}
 
 	//Move save functionality into an observable on the tasks array

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { Task } from '../models/task';
 
@@ -14,7 +14,14 @@ export class EditTaskDialogComponent implements OnInit {
 
 	}
 
+	@HostListener("keypress", ["$event"])
+	public onKeyPress(event: KeyboardEvent) {
+		if(event.keyCode == 13)
+			this.submit();
+	}
+
 	ngOnInit() {
+
 	}
 
 	submit() {
