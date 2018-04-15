@@ -9,7 +9,7 @@
 					<mat-list-item class="todo-item" [style.background-color]="(task.completed) ? color : ''">
 						<p mat-line>
 							<mat-form-field>
-								<input matInput [focus]="task.focus" (blur)="task.autoFocus=false; save()" [(ngModel)]="task.name"/>
+								<input matInput [focus]="task.focus" (blur)="task.focus=false; save()" [(ngModel)]="task.name"/>
 							</mat-form-field>
 						</p>
 						<button mat-icon-button (click)="toggleTask(task.id)">
