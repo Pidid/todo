@@ -16,8 +16,10 @@ export class EditTaskDialogComponent implements OnInit {
 
 	@HostListener("keypress", ["$event"])
 	public onKeyPress(event: KeyboardEvent) {
-		// if(event.keyCode == 13)
-		// 	this.submit();
+		//TODO: Move this logic into a directive
+		var fromTextArea = event.srcElement.nodeName.toLocaleLowerCase() == "textarea";
+		if(event.keyCode == 13 && !fromTextArea)
+			 this.submit();
 	}
 
 	ngOnInit() {
