@@ -35,7 +35,8 @@ export class TodoListComponent implements OnInit {
 		this.tasks.push(<Task>{
 			id: TodoListComponent.getId(),
 			name: "",
-			completed: false
+			completed: false,
+			focus: true
 		});
 		this.save();
 	}
