@@ -14,7 +14,6 @@ import { FocusDirective } from './directives/focus.directive';
 import { Color } from './models/color';
 import { SettingsService } from './services/settings.service';
 import { ColorFormComponent } from './color-form/color-form.component';
-import { ColorPreviewComponent } from './color-preview/color-preview.component';
 import { HexValidatorDirective } from './directives/hex-validator.directive';
 
 
@@ -26,7 +25,6 @@ import { HexValidatorDirective } from './directives/hex-validator.directive';
 		SettingsDialogComponent,
 		FocusDirective,
 		ColorFormComponent,
-		ColorPreviewComponent,
 		HexValidatorDirective
 	],
 	entryComponents: [

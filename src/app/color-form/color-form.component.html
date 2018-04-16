@@ -6,7 +6,9 @@
 		<mat-form-field>
 			<input matInput placeholder="Hex" hexValidator [(ngModel)]="color.hex" name="colorHex" #colorHex="ngModel" />
 		</mat-form-field>
-		<color-preview *ngIf="color.hex.length > 1" color="{{color.hex}}"></color-preview>
+		<div class="preview-container" *ngIf="color.hex.length > 1">
+			<div class="color-box" [style.background-color]="'#' + color.hex"></div>
+		</div>
 		<br>
 		<button mat-raised-button (click)="submit()" *ngIf="colorHex">
 			Add Color

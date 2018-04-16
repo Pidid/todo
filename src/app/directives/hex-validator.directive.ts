@@ -7,7 +7,9 @@ import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 })
 export class HexValidatorDirective implements Validator {
 
-	constructor() { }
+	constructor() {
+
+	}
 
 	validate(control: AbstractControl): { [key: string]: any } {
 		var invalid = false;
