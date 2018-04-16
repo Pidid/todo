@@ -13,8 +13,6 @@ import { Color } from '../models/color';
 export class SettingsDialogComponent implements OnInit {
 	@Output() onPickColor = new EventEmitter<Color>();
 	settings: Settings;
-	newColorName: string;
-	newColorHex: string;
 
 	constructor(public dialog: MatDialogRef<SettingsDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,

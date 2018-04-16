@@ -1,20 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, Input } from '@angular/core';
 import { Color } from '../models/color';
 import { ErrorStateMatcher } from '@angular/material';
 import { FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
-
-export class HexMatcher implements ErrorStateMatcher {
-	isErrorState(control: FormControl, form: FormGroupDirective | NgForm | null): boolean {
-		var invalid = true;
-		if(!control.dirty)
-			return false;
-		if(control.value !== null) {
-			var controlValue = <string>control.value;
-			invalid = controlValue.length !== 6 || controlValue.toLocaleLowerCase().match("[g-z]") !== null;
-		}
-		return invalid;
-	}
-}
+import { SettingsService } from '../services/settings.service';
 
 @Component({
 	selector: 'color-form',
@@ -23,9 +11,10 @@ export class HexMatcher implements ErrorStateMatcher {
 })
 export class ColorFormComponent implements OnInit {
 	@Output() onSubmit = new EventEmitter();
+	@ViewChild(NgForm) form: NgForm;
 	color: Color = new Color("", "");
-	hexMatch = new HexMatcher();
-	constructor() { 
+
+	constructor(public settingsService: SettingsService) {
 
 	}
 
@@ -34,8 +23,15 @@ export class ColorFormComponent implements OnInit {
 	}
 
 	submit() {
-		if(this.color.hex.length !== 6)
+		var settings = this.settingsService.getSettings();
+
+		//TODO: Handle taken this better. Add an error message specifying the property taken
+		var propertyTaken = settings.colors
+			.findIndex(c => c.name == this.color.name || c.hex == this.color.hex) > -1;
+
+		if(!this.form.valid || propertyTaken)
 			return;
+
 		this.onSubmit.emit(this.color);
 		this.color = new Color("", "");
 	}
