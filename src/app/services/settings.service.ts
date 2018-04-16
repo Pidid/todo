@@ -24,6 +24,9 @@ export class SettingsService {
 		if(!settings.colors || settings.colors.length < 1)
 			settings.colors = this.getDefaultColors();
 
+		if(!settings.selectedColor)
+			settings.selectedColor = settings.colors[0];
+
 		return settings;
 	}
 

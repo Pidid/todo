@@ -16,6 +16,11 @@ export class TaskService {
 	getTasks(): Task[] {
 		var tasks = this.localStorageService.read<Task[]>(TaskService);
 
+		if(!tasks) {
+			tasks = [];
+			this.saveTasks([]);
+		}
+
 		if(!this.latestId) {
 			if(tasks.length > 0) {
 				var ids = tasks.map(task => task.id);
