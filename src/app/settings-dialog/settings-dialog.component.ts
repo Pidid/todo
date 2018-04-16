@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { TaskService } from '../task.service';
-import { SettingsService } from '../settings.service';
+import { TaskService } from '../services/task.service';
+import { SettingsService } from '../services/settings.service';
 import { Settings } from '../models/settings';
 import { Color } from '../models/color';
 

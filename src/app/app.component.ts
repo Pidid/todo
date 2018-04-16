@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component'
 import { Color } from './models/color';
-import { SettingsService } from './settings.service';
+import { SettingsService } from './services/settings.service';
 
 @Component({
 	selector: 'app-root',

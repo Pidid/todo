@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EditTaskDialogComponent } from '../edit-task-dialog/edit-task-dialog.component';
 import { Task } from '../models/task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { Color } from '../models/color';
 
 @Component({

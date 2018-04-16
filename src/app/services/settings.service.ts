@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
-import { Settings } from './models/settings';
-import { Color } from './models/color';
+import { Settings } from '../models/settings';
+import { Color } from '../models/color';
 
 @Injectable()
 export class SettingsService {

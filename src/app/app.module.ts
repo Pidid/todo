@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.component';
 import { FormsModule } from '@angular/forms';
-import { TaskService } from './task.service';
-import { LocalStorageService } from './local-storage.service';
+import { TaskService } from './services/task.service';
+import { LocalStorageService } from './services/local-storage.service';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
-import { FocusDirective } from './focus.directive';
+import { FocusDirective } from './directives/focus.directive';
 import { Color } from './models/color';
-import { SettingsService } from './settings.service';
+import { SettingsService } from './services/settings.service';
 import { ColorFormComponent } from './color-form/color-form.component';
 import { ColorPreviewComponent } from './color-preview/color-preview.component';
 
