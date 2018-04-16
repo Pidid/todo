@@ -13,7 +13,7 @@ export class ColorPreviewComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.color);
+
 	}
 
 }
