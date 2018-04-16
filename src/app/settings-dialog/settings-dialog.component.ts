@@ -28,12 +28,14 @@ export class SettingsDialogComponent implements OnInit {
 	pickColor(color: Color) {
 		this.settings.selectedColor = color;
 		this.onPickColor.emit(color);
+
 		this.settingsService.saveSettings(this.settings);
 	}
 
 	addColor(color: Color) {
 		this.settings.colors.push(color);
 		this.settingsService.saveSettings(this.settings);
+
 		this.pickColor(color);
 	}
 
@@ -52,6 +54,7 @@ export class SettingsDialogComponent implements OnInit {
 	resetColors() {
 		this.settings.colors = this.settingsService.getDefaultColors();
 		this.pickColor(this.settings.colors[0]);
+
 		this.settingsService.saveSettings(this.settings);
 		this.dialog.close();
 	}

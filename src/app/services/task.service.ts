@@ -4,9 +4,9 @@ import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
 export class TaskService {
+	latestId: number;
 
 	constructor(public localStorageService: LocalStorageService) { 
-
 	}
 
 	saveTasks(tasks: Task[]) {
@@ -14,6 +14,22 @@ export class TaskService {
 	}
 
 	getTasks(): Task[] {
-		return this.localStorageService.read<Task[]>(TaskService);
+		var tasks = this.localStorageService.read<Task[]>(TaskService);
+
+		if(!this.latestId) {
+			if(tasks.length > 0) {
+				var ids = tasks.map(task => task.id);
+				this.latestId = Math.max.apply(null, ids);
+			}
+			else
+				this.latestId = 0;
+		}
+
+		return tasks;
+	}
+
+	getId() {
+		this.latestId++;
+		return this.latestId;
 	}
 }

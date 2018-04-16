@@ -24,17 +24,11 @@ export class TodoListComponent implements OnInit {
 
 	ngOnInit() {
 		this.tasks = this.taskService.getTasks() || [];
-		if(this.tasks.length > 0) {
-			var ids = this.tasks.map(task => task.id);
-			TodoListComponent.latestId = Math.max.apply(null, ids);
-		}
-		else
-			TodoListComponent.latestId = 0;
 	}
 
 	addTask() {
 		this.tasks.push(<Task>{
-			id: TodoListComponent.getId(),
+			id: this.taskService.getId(),
 			name: "",
 			completed: false,
 			focus: true
@@ -67,14 +61,9 @@ export class TodoListComponent implements OnInit {
 		});
 	}
 
-	//Move save functionality into an observable on the tasks array
 	save() {
 		this.taskService.saveTasks(this.tasks);
 	}
 
-	static getId() {
-		TodoListComponent.latestId++;
-		return TodoListComponent.latestId;
-	}
 
 }
