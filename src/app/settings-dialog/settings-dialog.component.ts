@@ -16,8 +16,8 @@ export class SettingsDialogComponent implements OnInit {
 
 	constructor(public dialog: MatDialogRef<SettingsDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
-		public taskService: TaskService,
-		public settingsService: SettingsService) {
+		private taskService: TaskService,
+		private settingsService: SettingsService) {
 
 	}
 

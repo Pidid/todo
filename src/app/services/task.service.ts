@@ -6,7 +6,7 @@ import { LocalStorageService } from './local-storage.service';
 export class TaskService {
 	latestId: number;
 
-	constructor(public localStorageService: LocalStorageService) { 
+	constructor(private localStorageService: LocalStorageService) {
 	}
 
 	saveTasks(tasks: Task[]) {

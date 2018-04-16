@@ -6,7 +6,7 @@ import { Color } from '../models/color';
 @Injectable()
 export class SettingsService {
 
-	constructor(public localStorageService: LocalStorageService) {
+	constructor(private localStorageService: LocalStorageService) {
 
 	}
 

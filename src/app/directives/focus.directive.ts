@@ -6,7 +6,7 @@ import { Directive, ElementRef, OnInit, Input, Renderer, HostListener } from '@a
 export class FocusDirective implements OnInit {
 	@Input() focus: boolean;
 
-	constructor(public el: ElementRef, public renderer: Renderer) {
+	constructor(public el: ElementRef) {
 
 	}
 

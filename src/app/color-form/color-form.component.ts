@@ -14,7 +14,7 @@ export class ColorFormComponent implements OnInit {
 	@ViewChild(NgForm) form: NgForm;
 	color: Color = new Color("", "");
 
-	constructor(public settingsService: SettingsService) {
+	constructor(private settingsService: SettingsService) {
 
 	}
 

@@ -5,6 +5,7 @@ import { Task } from '../models/task';
 import { TaskService } from '../services/task.service';
 import { Color } from '../models/color';
 
+//TODO: Add a place in the template for task descriptions
 @Component({
 	selector: 'todo-list',
 	templateUrl: './todo-list.component.html',
