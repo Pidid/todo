@@ -18,7 +18,7 @@ export class TodoListComponent implements OnInit {
 	tasks: Task[];
 	hex: string;
 
-	constructor(public dialog: MatDialog, public taskService: TaskService) {
+	constructor(private dialog: MatDialog, private taskService: TaskService) {
 		
 	}
 
@@ -65,5 +65,7 @@ export class TodoListComponent implements OnInit {
 		this.taskService.saveTasks(this.tasks);
 	}
 
-
+	reloadTasks() {
+		this.tasks = this.taskService.getTasks();
+	}
 }
